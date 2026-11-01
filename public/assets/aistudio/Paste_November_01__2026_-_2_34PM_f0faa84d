@@ -1,0 +1,1538 @@
+# LENDRIX VENTECH – INVESTING & WEALTH MANAGEMENT
+## Complete Multi-Role Investor Onboarding, KYC, AML, Risk Profiling and CRM UI Implementation
+
+You are acting as a Senior Product Designer, Fintech UX Architect, Business Analyst and Senior React Frontend Developer.
+
+We are building a complete Investing / Wealth Management vertical for the existing Lendrix Ventech platform.
+
+I have provided a document titled:
+
+**Investor KYC & Risk Profiling Framework – Draft 1.0, October 2026.**
+
+Read and understand the entire document before implementing anything.
+
+The document is the primary functional reference. Follow its actual questions, fields, scoring rules, profile classifications, overrides, declarations and implementation requirements.
+
+Do not skip sections or simplify the actual investor onboarding process.
+
+The objective is to create a detailed, professional, responsive and interconnected UI covering these four dashboards:
+
+1. Customer Dashboard
+2. Admin Dashboard
+3. CRM Dashboard
+4. Sales / DSA Dashboard
+
+This is a complete UI implementation exercise. Build the actual screens, navigation, forms, tables, cards, charts, dialogs, modals, workflows and interactive prototypes.
+
+Do not create only a landing page or a collection of static dashboard cards.
+
+---
+
+# PART 1 – PROJECT OBJECTIVE
+
+Build the Investing / Wealth Management vertical as a separate module within Lendrix.
+
+The system must support the complete investor lifecycle:
+
+Lead Generation → Investor Registration → Identity KYC → AML Review → Financial Profiling → Investment Goals → Risk Assessment → Risk Calculation → Customer Confirmation → Consent → Suitability Review → Investor Onboarding Completion → Ongoing Reassessment.
+
+The four dashboards must reflect the same investor journey from their respective roles.
+
+## Important separation of assessments
+
+The system must maintain two independent assessments:
+
+### Assessment A – Identity KYC and AML Risk
+
+Possible AML classifications:
+
+- Low
+- Medium
+- High
+
+This assesses identity verification and money-laundering-related risk.
+
+### Assessment B – Financial Investment Risk Profile
+
+Possible investment classifications:
+
+- Conservative
+- Moderately Conservative
+- Moderate
+- Moderately Aggressive
+- Aggressive
+
+This assesses the investor's financial risk capacity and willingness to take investment risk.
+
+NEVER combine these two assessments into one score or one classification.
+
+---
+
+# PART 2 – DESIGN SYSTEM AND VISUAL DIRECTION
+
+Create a premium, modern financial-services dashboard.
+
+The design should look like a professional wealth-management platform rather than a generic admin template.
+
+## Visual requirements
+
+- Professional light theme.
+- White and soft-neutral backgrounds.
+- Navy or dark blue primary elements.
+- Refined financial-dashboard typography.
+- Clean cards and structured information panels.
+- Subtle borders and shadows.
+- Consistent spacing and alignment.
+- Modern charts and data visualizations.
+- Professional tables.
+- Clear status indicators.
+- Responsive desktop, tablet and mobile layouts.
+
+Avoid:
+
+- Excessive gradients.
+- Excessive animations.
+- Unnecessary decorative graphics.
+- Overcrowded dashboard screens.
+- Huge empty spaces.
+- Inconsistent button styles.
+- Generic placeholder content.
+- Unprofessional financial terminology.
+
+Use a consistent component library and design system across all four roles.
+
+Create reusable components for:
+
+- Sidebar navigation.
+- Top navigation.
+- Breadcrumbs.
+- Page headers.
+- Metric cards.
+- Data tables.
+- Search and filters.
+- Status badges.
+- Forms.
+- Step indicators.
+- Progress bars.
+- Confirmation dialogs.
+- Detail drawers.
+- Modals.
+- Charts.
+- Timeline/activity history.
+- Empty states.
+- Loading states.
+- Validation messages.
+
+The four dashboards should look like parts of the same Lendrix platform, but their navigation and available actions must differ according to role.
+
+---
+
+# PART 3 – ROLE-BASED DASHBOARD STRUCTURE
+
+Create four separate role experiences.
+
+Provide a development-only role switcher so we can preview:
+
+- Customer
+- Admin
+- CRM
+- Sales / DSA
+
+This switcher is only for UI preview. Do not treat it as a real authentication or authorization mechanism.
+
+Each role must have its own sidebar and navigation.
+
+Do not allow one role's actions to appear in another role's interface unless explicitly permitted below.
+
+---
+
+# PART 4 – CUSTOMER DASHBOARD
+
+## Objective
+
+The customer should be able to complete investor onboarding, submit KYC information, provide financial information, set investment goals, complete the risk questionnaire, review their profile and provide the required consent.
+
+Create a dedicated Investing / Wealth Management workspace.
+
+## 4.1 Customer sidebar
+
+Create the following navigation:
+
+- Overview
+- Investor Onboarding
+- My KYC
+- Financial Profile
+- Investment Goals
+- Risk Assessment
+- My Risk Profile
+- Documents
+- Bank Accounts
+- Nominees
+- Consent & Declarations
+- Investment Suitability
+- Notifications
+- Profile & Settings
+
+The customer should not see Admin, CRM or Sales management functions.
+
+## 4.2 Customer Overview
+
+Build a complete dashboard showing:
+
+- Welcome message.
+- Investor onboarding completion percentage.
+- Overall onboarding status.
+- KYC verification status.
+- AML review status, where appropriate.
+- Financial profile completion.
+- Investment goals completion.
+- Risk assessment completion.
+- Consent status.
+- Pending actions.
+- Recent activity.
+- Notifications.
+- Reassessment reminder, if applicable.
+
+Add a clear "Continue Investor Onboarding" action.
+
+Show an onboarding progress timeline with stages:
+
+1. Investor Details
+2. Identity KYC
+3. Financial Profile
+4. Investment Goals
+5. Risk Assessment
+6. Risk Calculation
+7. Confirmation & Consent
+8. Suitability Review
+
+## 4.3 Investor Category
+
+Create the investor-category selection screen.
+
+Use the investor categories supported by the source document and flag any categories that require additional business confirmation.
+
+The design must account for the possibility of:
+
+- Individual
+- HUF
+- Company
+- Trust
+- Partnership
+
+Do not assume that every category follows the same individual KYC form.
+
+When an entity category is selected, show the relevant entity information and flag the additional authorized-person, beneficial-ownership and holder requirements for implementation.
+
+## 4.4 Identity KYC
+
+Build a multi-step KYC form.
+
+### Section A1 – Personal Information
+
+Include fields supported by the document:
+
+- Full legal name
+- Date of birth
+- Gender
+- PAN
+- Masked Aadhaar / Officially Valid Document details
+- Parent / spouse name
+- Marital status
+- Nationality
+- Residential status
+- Mobile number
+- OTP verification status
+- Email address
+- Email verification status
+- Correspondence address
+- Permanent address
+- Occupation
+- Annual income slab
+- Source of wealth
+- Photograph
+
+### Section A2 – Declarations
+
+Create sections for:
+
+- PEP declaration
+- FATCA / CRS declaration
+- Country of birth
+- Beneficial ownership
+- KRA status
+- CKYC status
+
+Show conditional fields when relevant.
+
+Do not invent verification-provider responses. Use clearly labelled demo statuses.
+
+### Section A3 – Bank Details and Nominees
+
+Bank information:
+
+- Account holder name
+- Bank account number
+- IFSC
+- Account type
+- Verification status
+- Penny-drop / cancelled-cheque verification indicator
+
+Nominee information:
+
+- Nominee name
+- Relationship
+- Date of birth where applicable
+- Nominee share percentage
+- Contact information where required
+
+Include mode of holding and all-holder KYC status.
+
+### KYC experience
+
+Implement:
+
+- Save as draft.
+- Continue later.
+- Form validation.
+- Document upload UI.
+- Upload status.
+- Verification status.
+- Rejected document state.
+- Additional information required state.
+- Submission confirmation.
+- KYC activity history.
+
+Never display full Aadhaar, PAN or bank account information unnecessarily.
+
+## 4.5 Financial Profile
+
+Create a separate financial-profile questionnaire.
+
+Include all nine questions B1–B9 from the uploaded framework.
+
+Cover the following areas:
+
+- Dependents.
+- Net worth.
+- Monthly investment comfort.
+- Lump-sum investment capacity.
+- Existing investment portfolio.
+- Loans and EMI obligations.
+- Insurance.
+- Expected income or expense changes.
+- Whether money may be needed within the next 12 months.
+
+Use the exact questions and response choices from the uploaded document.
+
+Use suitable controls:
+
+- Radio buttons.
+- Select fields.
+- Currency inputs.
+- Multiple selections.
+- Conditional text fields.
+
+Do not calculate the investment risk score from these nine unscored questions.
+
+They are financial-profile information and should remain separate from the scored D1–D12 questionnaire.
+
+## 4.6 Investment Goals
+
+Build a goal-management section.
+
+Use the goal categories from the document:
+
+- Retirement.
+- Education.
+- Marriage.
+- Home / Vehicle.
+- Wealth Creation.
+- Income.
+- Tax Saving.
+- Short-term Cash Parking.
+
+Allow multiple goals.
+
+Each goal should capture:
+
+- Goal category.
+- Target amount.
+- Target year.
+- Priority.
+- Investment approach.
+- Goal description.
+
+Allow customers to add, edit and remove goals before final submission.
+
+### Investment Preferences
+
+Capture:
+
+- SIP.
+- Lump sum.
+- Both.
+- Expected annual return.
+- Self-managed or adviser-guided.
+- Direct or Regular plan.
+- Payout preferences.
+- Investment restrictions and preferences.
+
+Do not promise or guarantee returns.
+
+## 4.7 Risk Assessment – Critical Feature
+
+Build a complete 12-question investor risk questionnaire.
+
+Use the actual wording and all five answer options for each question from the uploaded framework.
+
+Do not replace the questions with generic questions.
+
+### Risk Capacity – D1 to D6
+
+The six capacity questions assess:
+
+1. Age.
+2. Investment horizon.
+3. Income stability.
+4. EMI obligations.
+5. Emergency fund.
+6. Proportion of income invested.
+
+### Risk Willingness – D7 to D12
+
+The six willingness questions assess:
+
+7. Investment knowledge.
+8. Investment objective.
+9. Tolerable investment fall.
+10. Reaction to a 20% investment fall.
+11. Return preference.
+12. Current investment allocation.
+
+### Questionnaire UI
+
+Create a polished, one-question-per-screen experience.
+
+Each screen must show:
+
+- Question number.
+- Section name.
+- Question text.
+- Five answer options.
+- Progress indicator.
+- Previous button.
+- Next button.
+- Save and continue later.
+- Clear validation for unanswered questions.
+
+Do not show question scores to the customer.
+
+Do not preselect answers.
+
+Allow the customer to review answers before final submission.
+
+### Risk calculation
+
+Implement the exact scoring rules in the source document.
+
+Capacity score:
+
+D1 + D2 + D3 + D4 + D5 + D6
+
+Range: 6–30.
+
+Willingness score:
+
+D7 + D8 + D9 + D10 + D11 + D12
+
+Range: 6–30.
+
+Combined score:
+
+Capacity + Willingness.
+
+Range: 12–60, for reporting only.
+
+Do not use the combined score to determine the final profile.
+
+### Level mapping
+
+| Score | Level | Profile |
+|---|---|---|
+| 6–10 | 1 | Conservative |
+| 11–15 | 2 | Moderately Conservative |
+| 16–20 | 3 | Moderate |
+| 21–25 | 4 | Moderately Aggressive |
+| 26–30 | 5 | Aggressive |
+
+Final investment profile:
+
+Take the lower of the capacity level and willingness level.
+
+### Overrides
+
+Implement the source document's O1–O7 override rules:
+
+- O1: Investment horizon below one year caps the profile at Conservative.
+- O2: Money likely to be needed within 12 months caps the profile at Conservative for the amount likely to be withdrawn.
+- O3: Investment horizon of 1–3 years caps the profile at Moderately Conservative.
+- O4: No emergency fund caps the profile at Moderately Conservative.
+- O5: More than 60% of income committed to obligations caps the profile at Moderately Conservative.
+- O6: Age above 60 and more than 50% of savings invested caps the profile at Moderate.
+- O7: Missing scored answer blocks profile calculation and recommendations.
+
+The most restrictive applicable override wins.
+
+If answers are inconsistent, display a clarification step.
+
+An adviser may lower the profile only with a recorded written reason.
+
+Do not allow an adviser to raise the calculated profile.
+
+For O2, clearly identify that the amount allocation rule requires business approval. Do not invent the amount calculation.
+
+### Risk result
+
+After successful assessment, show:
+
+- Risk capacity category.
+- Risk willingness category.
+- Final investment profile.
+- Assessment date.
+- Assessment status.
+- Applied overrides, in customer-friendly language.
+- Reassessment date/status.
+
+Do not expose individual question scores.
+
+## 4.8 Confirmation and Consent
+
+Create a review page showing all submitted sections.
+
+Include:
+
+- Identity information summary.
+- Financial profile summary.
+- Goals summary.
+- Risk profile.
+- Applicable declarations.
+- Customer declaration.
+- Consent confirmation.
+- E-sign placeholder/workflow state.
+
+Include the Direct / Regular plan disclosures described in the document.
+
+Provide clear confirmation before final submission.
+
+Do not pretend that an actual legally valid e-signature has been performed in a frontend-only prototype.
+
+## 4.9 Investment Suitability
+
+Create an indicative product-category information screen based on the source document's mapping.
+
+| Risk profile | Indicative equity allocation |
+|---|---|
+| Conservative | 0–10% |
+| Moderately Conservative | 10–30% |
+| Moderate | 30–55% |
+| Moderately Aggressive | 55–80% |
+| Aggressive | 80–100% |
+
+Use the scheme categories described in the uploaded document.
+
+Clearly display that:
+
+- These are indicative allocations.
+- Scheme riskometers and current scheme documents must be checked.
+- This is not a guaranteed-return representation.
+- Final suitability requires the relevant approved review.
+
+Do not build an actual mutual fund execution or investment purchase system unless separately requested.
+
+## 4.10 Customer Documents, Bank Accounts and Nominees
+
+Build detailed screens to:
+
+- View uploaded documents.
+- Upload required documents.
+- Track document verification.
+- View bank account details in masked form.
+- Track bank verification.
+- Add and edit nominees.
+- View rejected or expired documents.
+- View consent history.
+
+## 4.11 Customer Notifications
+
+Show notifications for:
+
+- KYC submitted.
+- KYC verified.
+- Document rejected.
+- Additional information required.
+- AML review pending, where customer-visible communication is permitted.
+- Financial profile incomplete.
+- Risk assessment pending.
+- Consent pending.
+- Onboarding completed.
+- Reassessment due.
+
+Do not disclose sensitive internal AML investigation details to customers.
+
+---
+
+# PART 5 – ADMIN DASHBOARD
+
+## Objective
+
+Admin is responsible for investor oversight, KYC verification, AML/compliance review, risk-profile oversight, document management, approvals, audit history and reports.
+
+## 5.1 Admin navigation
+
+Create a dedicated Investing / Wealth Management sidebar:
+
+- Overview
+- Investor Management
+- Investor Applications
+- KYC Verification
+- Document Verification
+- AML & Compliance
+- PEP Review
+- FATCA / CRS
+- Bank Verification
+- Nominee Management
+- Risk Profile Management
+- Risk Assessment History
+- Suitability Review
+- Adviser Overrides
+- Consent & Declarations
+- Reassessment Management
+- Reports & Analytics
+- Audit Logs
+- Configuration
+
+## 5.2 Admin Overview
+
+Build metric cards for:
+
+- Total investors.
+- New applications.
+- KYC pending.
+- KYC verified.
+- KYC rejected.
+- Additional information requested.
+- AML review pending.
+- High-risk AML cases.
+- Risk assessments completed.
+- Consent pending.
+- Reassessment due.
+
+Include:
+
+- Onboarding trend chart.
+- KYC status chart.
+- AML category distribution.
+- Investment profile distribution.
+- Recent activities.
+- Pending review queue.
+- Critical alerts.
+
+Use consistent demo data.
+
+## 5.3 Investor Management
+
+Create an investor listing with:
+
+- Investor ID.
+- Investor name.
+- Investor category.
+- Registration date.
+- KYC status.
+- AML status.
+- Risk profile status.
+- Final investment profile, if completed.
+- Assigned adviser.
+- Onboarding progress.
+- Last activity.
+- Actions.
+
+Filters:
+
+- Date.
+- Investor category.
+- KYC status.
+- AML category.
+- Risk profile.
+- Assigned adviser.
+- Onboarding status.
+
+Clicking an investor must open a detailed Investor 360 view.
+
+## 5.4 Investor 360 Detail Page
+
+Create tabs:
+
+1. Overview.
+2. Personal Information.
+3. KYC.
+4. Documents.
+5. Financial Profile.
+6. Investment Goals.
+7. Risk Assessment.
+8. AML & Compliance.
+9. Bank Accounts.
+10. Nominees.
+11. Consent.
+12. Activities.
+13. Audit History.
+
+Show the information in a clear, professional structure.
+
+Sensitive data must be masked and role-controlled.
+
+## 5.5 KYC Verification Workspace
+
+Create a verification queue.
+
+Admin must be able to:
+
+- Open KYC application.
+- Review identity details.
+- Review document uploads.
+- View verification results.
+- Compare submitted information.
+- Mark items verified where the configured process permits.
+- Reject with a mandatory reason.
+- Request additional information.
+- View prior verification actions.
+
+Use statuses:
+
+- Not Started.
+- Draft.
+- Submitted.
+- Under Review.
+- Verified.
+- Rejected.
+- Additional Information Required.
+
+Show the full action history.
+
+Do not assume every external KYC provider is integrated.
+
+## 5.6 AML and Compliance Workspace
+
+Build a separate AML review module.
+
+Show:
+
+- AML classification.
+- PEP declaration.
+- FATCA / CRS declaration.
+- Source of wealth.
+- Beneficial ownership.
+- Jurisdiction indicators.
+- KYC mismatches.
+- Compliance flags.
+- Review notes.
+- Supporting documents.
+- Decision history.
+
+AML categories:
+
+- Low.
+- Medium.
+- High.
+
+Provide an escalation workflow.
+
+For high-risk cases, include an enhanced due diligence review area.
+
+The source document does not define a numerical AML scoring formula. Do not invent one.
+
+Do not present simulated AML decisions as actual legal or regulatory verification.
+
+## 5.7 Risk Profile Management
+
+Display:
+
+- Risk capacity result.
+- Risk willingness result.
+- Final profile.
+- Applied overrides.
+- Inconsistency flags.
+- Missing answers.
+- Assessment date.
+- Questionnaire version.
+- Reassessment history.
+
+Admin should be able to inspect the calculation details.
+
+The UI must clearly separate:
+
+- Original assessment.
+- Applied override.
+- Adviser adjustment.
+- Final approved profile.
+
+An adviser lowering the risk profile must provide a written reason.
+
+Do not provide an option to arbitrarily raise the profile.
+
+For higher-risk scheme selection, display the source document's warning and written/e-signed acknowledgement requirement.
+
+## 5.8 Suitability Review
+
+Create a suitability review workspace.
+
+Show:
+
+- Investor risk profile.
+- Investment horizon.
+- Financial profile.
+- Investment goals.
+- Product category.
+- Scheme risk information placeholder.
+- Suitability decision.
+- Review comments.
+- Acknowledgement status.
+
+Do not automatically approve a product solely because its category matches the investor profile.
+
+## 5.9 Consent and Declarations
+
+Create a detailed consent management interface.
+
+Track:
+
+- Customer declarations.
+- Consent version.
+- Consent date.
+- E-sign status.
+- Direct / Regular disclosure.
+- Adviser/distributor declaration.
+- Source-of-funds declaration.
+- PEP declaration.
+- Consent withdrawal.
+- Audit trail.
+
+## 5.10 Reassessment Management
+
+Create a dashboard for:
+
+- Reassessment due.
+- Overdue profiles.
+- Life-event reassessment triggers.
+- Last assessment date.
+- Next review date.
+- Reassessment status.
+
+The document specifies at least annual reassessment and reassessment after relevant life events.
+
+Do not invent a final stale-profile blocking period. Display it as a policy configuration requiring approval.
+
+## 5.11 Admin Reports
+
+Create reports for:
+
+- Investor onboarding.
+- KYC status.
+- AML category distribution.
+- High-risk review cases.
+- Financial profile completion.
+- Investment risk-profile distribution.
+- Consent completion.
+- Adviser overrides.
+- Reassessment due.
+- Audit activity.
+
+Add date filters and export UI controls. Export can be simulated in this frontend prototype.
+
+---
+
+# PART 6 – CRM DASHBOARD
+
+## Objective
+
+CRM manages investor acquisition, investor leads, assignments, onboarding progress, activities, follow-ups, campaigns and conversions.
+
+CRM must not perform Admin compliance approvals.
+
+## 6.1 CRM navigation
+
+Create:
+
+- Dashboard
+- Investor Leads
+- Investor Pipeline
+- Investors
+- Investor 360
+- Activities
+- Tasks
+- Follow-ups
+- Campaigns
+- Lead Sources
+- Assignments
+- Conversion Analytics
+- Reports
+- Settings
+
+## 6.2 CRM Dashboard
+
+Metric cards:
+
+- Total investor leads.
+- New leads.
+- Contacted.
+- Interested.
+- Registration pending.
+- KYC pending.
+- Risk profiling pending.
+- Onboarding completed.
+- Converted investors.
+- Lost leads.
+
+Charts:
+
+- Lead acquisition trend.
+- Lead source distribution.
+- Campaign performance.
+- Investor onboarding funnel.
+- Conversion rate.
+- Sales representative performance.
+
+## 6.3 Investor Kanban Pipeline
+
+Build a fully interactive Kanban board.
+
+Suggested stages:
+
+1. New Investor Lead.
+2. Contacted.
+3. Interested.
+4. Registration Pending.
+5. KYC Pending.
+6. KYC Under Review.
+7. Financial Profile Pending.
+8. Risk Profiling Pending.
+9. Consent Pending.
+10. Onboarding Completed.
+11. Converted.
+12. Dropped / Lost.
+
+These are proposed CRM workflow stages and should be configurable.
+
+Each card should show:
+
+- Investor name.
+- Lead ID.
+- Lead source.
+- Assigned owner.
+- Investor category.
+- Last activity.
+- Next follow-up.
+- Onboarding progress.
+- Priority.
+
+Implement:
+
+- Search.
+- Filters.
+- Drag-and-drop stage movement.
+- Activity history.
+- Confirmation before sensitive stage changes.
+- Status updates in the frontend demo state.
+
+Use realistic demo investors.
+
+## 6.4 Investor 360 CRM Profile
+
+Create a complete investor relationship view.
+
+Tabs:
+
+- Overview.
+- Lead Details.
+- Investor Information.
+- Onboarding Progress.
+- KYC Status.
+- Financial Profile Summary.
+- Investment Goals Summary.
+- Risk Profile Summary.
+- Activities.
+- Tasks.
+- Communications.
+- Campaign Attribution.
+- Conversion History.
+
+CRM must only display sensitive information permitted by its role.
+
+Do not show full PAN, Aadhaar, bank details or unrestricted KYC documents.
+
+## 6.5 Activities and Tasks
+
+Implement:
+
+- Calls.
+- Meetings.
+- Notes.
+- Tasks.
+- Follow-up dates.
+- Reminders.
+- Email communication records.
+- SMS communication records.
+- Assignment history.
+- Escalation.
+
+Add activity timeline.
+
+## 6.6 Campaign Management
+
+Create:
+
+- Campaign list.
+- Campaign creation UI.
+- Campaign status.
+- Campaign source.
+- Leads generated.
+- Contacted leads.
+- Interested leads.
+- Registration count.
+- Completed investor count.
+- Conversion rate.
+
+Track attribution from campaign to completed investor onboarding.
+
+Do not claim that live advertising platform integrations exist.
+
+---
+
+# PART 7 – SALES / DSA DASHBOARD
+
+## Objective
+
+Sales / DSA users help investors through acquisition, registration and onboarding.
+
+Sales users should see assigned leads and customers and help them complete the required process.
+
+Sales must not independently approve KYC, AML or change risk scores.
+
+## 7.1 Sales navigation
+
+Create:
+
+- Overview
+- My Investor Leads
+- My Investors
+- Onboarding Tracker
+- KYC Follow-ups
+- Financial Profile Follow-ups
+- Risk Assessment Follow-ups
+- Consent Follow-ups
+- Activities
+- Tasks & Reminders
+- Meetings
+- Communications
+- Performance
+- Profile
+
+## 7.2 Sales Overview
+
+Metric cards:
+
+- Assigned leads.
+- New leads.
+- Contacted leads.
+- Interested investors.
+- Registration pending.
+- KYC pending.
+- Financial profile pending.
+- Risk assessment pending.
+- Consent pending.
+- Completed onboardings.
+
+Include:
+
+- My pipeline.
+- Today's follow-ups.
+- Overdue tasks.
+- Recent customer activity.
+- Lead conversion chart.
+- Onboarding completion chart.
+
+## 7.3 My Investor Leads
+
+Build a detailed table with:
+
+- Lead ID.
+- Investor name.
+- Contact information, subject to permissions.
+- Source.
+- Lead date.
+- Investor category.
+- Current stage.
+- Priority.
+- Last contact.
+- Next follow-up.
+- Actions.
+
+Add search and filters.
+
+## 7.4 Investor Onboarding Tracker
+
+Sales should be able to monitor each assigned investor's journey:
+
+- Registration.
+- Identity KYC.
+- KYC verification.
+- Financial profile.
+- Investment goals.
+- Risk assessment.
+- Customer consent.
+- Suitability review.
+- Onboarding completion.
+
+Show progress bars and pending actions.
+
+Sales can help customers understand which steps remain incomplete.
+
+Sales cannot approve these verification stages.
+
+## 7.5 Follow-up Management
+
+Build:
+
+- Create follow-up.
+- Call log.
+- Meeting log.
+- Add notes.
+- Schedule next contact.
+- Set reminders.
+- Mark task complete.
+- View overdue tasks.
+
+## 7.6 Customer Assistance
+
+Allow Sales to:
+
+- View customer onboarding progress.
+- Guide customers to the correct section.
+- Track missing documents.
+- Request customer follow-up.
+- Record communication.
+- Escalate KYC issues to Admin.
+- Escalate technical issues to support.
+
+Do not allow Sales to edit submitted KYC information directly without the customer's authorized correction workflow.
+
+## 7.7 Sales Performance
+
+Show:
+
+- Assigned leads.
+- Contact rate.
+- Lead conversion.
+- Onboarding completion.
+- Average onboarding time.
+- Pending follow-ups.
+- Completed follow-ups.
+
+Use sample data and label it as demo data.
+
+---
+
+# PART 8 – CONNECTED WORKFLOW ACROSS ALL DASHBOARDS
+
+The four dashboards must represent one shared investor lifecycle.
+
+Implement a consistent frontend demo data model so that actions can be seen across the role previews.
+
+Example workflow:
+
+1. CRM creates an investor lead.
+2. CRM assigns the lead to a Sales user.
+3. Sales contacts the investor.
+4. Customer begins investor onboarding.
+5. Customer submits KYC.
+6. Admin reviews KYC.
+7. Admin requests additional information if needed.
+8. Customer updates the requested information.
+9. Admin completes verification.
+10. Customer completes financial profiling.
+11. Customer adds investment goals.
+12. Customer completes all 12 risk questions.
+13. The system calculates the risk profile.
+14. Customer confirms the assessment and provides consent.
+15. Authorized Admin / Adviser performs suitability review.
+16. Onboarding completion is reflected in CRM.
+17. Sales sees the updated progress.
+18. CRM tracks the completed investor and future follow-ups.
+
+Demonstrate this with interconnected sample data.
+
+If a demo action changes a status, show the updated status in the other role preview wherever appropriate.
+
+Use a centralized frontend mock data/state layer.
+
+Do not build four independent datasets with conflicting investor IDs and statuses.
+
+---
+
+# PART 9 – FUNCTIONAL UI REQUIREMENTS
+
+The application must be interactive.
+
+Do not build a static screenshot-style prototype.
+
+Implement:
+
+- Working sidebar navigation.
+- Working tabs.
+- Search.
+- Filters.
+- Pagination where appropriate.
+- Forms.
+- Form validation.
+- Step-based forms.
+- Save draft.
+- Continue onboarding.
+- Add/edit/delete investment goals.
+- Risk questionnaire navigation.
+- Risk calculation.
+- Risk override display.
+- Document upload simulation.
+- KYC status changes in demo mode.
+- Admin review actions in demo mode.
+- CRM Kanban drag-and-drop.
+- Activity creation.
+- Task creation.
+- Follow-up scheduling.
+- Modal and drawer interactions.
+- Confirmation dialogs.
+- Toast notifications.
+- Empty states.
+- Loading states.
+- Error states.
+
+All controls must have meaningful actions.
+
+Do not create buttons that do nothing.
+
+If an action is not implemented, show it as disabled or clearly mark it as a future integration.
+
+---
+
+# PART 10 – DATA AND COMPLIANCE SAFETY
+
+This phase is UI prototyping only.
+
+Use mock/demo data.
+
+Do not connect to real customer records.
+
+Do not claim actual PAN, KRA, CKYC, Aadhaar, bank, FATCA, AML or e-sign verification.
+
+Use clear demo statuses.
+
+Do not invent numerical AML scoring.
+
+Do not invent risk-question wording or answer options. Extract them from the provided document.
+
+Do not change the source document's risk scoring formula.
+
+Do not use the combined 12–60 score to determine the final risk profile.
+
+Do not expose sensitive personal information in CRM and Sales.
+
+Do not allow Sales or CRM to approve KYC or AML.
+
+Do not allow users to arbitrarily raise risk profiles.
+
+Do not represent indicative scheme allocations as guaranteed investment recommendations.
+
+Keep compliance-related functionality clearly identified as subject to approval and external integration.
+
+---
+
+# PART 11 – TECHNICAL IMPLEMENTATION
+
+Build the UI as a frontend application.
+
+Preferred stack:
+
+- React.
+- TypeScript.
+- Tailwind CSS.
+- Reusable components.
+- Lucide icons.
+- Recharts or an equivalent chart library.
+- React Router or the routing solution supported by the project.
+
+If Google AI Studio has already generated a project structure, inspect and reuse it rather than unnecessarily replacing it.
+
+Organize code cleanly.
+
+Suggested organization:
+
+src/
+  components/
+    common/
+    forms/
+    tables/
+    charts/
+    navigation/
+    investor/
+  layouts/
+    CustomerLayout
+    AdminLayout
+    CRMLayout
+    SalesLayout
+  pages/
+    customer/
+      investing/
+    admin/
+      investing/
+    crm/
+      investing/
+    sales/
+      investing/
+  services/
+    investingMockService
+  data/
+    investingMockData
+    riskQuestionnaire
+  types/
+    investor
+    kyc
+    risk
+    crm
+  utils/
+    riskCalculation
+    validation
+
+You may adapt this structure to the generated project.
+
+Keep the risk calculation in a separate, testable utility.
+
+Keep questionnaire content in a versioned data structure.
+
+Keep demo data separate from UI components.
+
+Use consistent typed interfaces.
+
+Do not put all four dashboards in one giant component.
+
+---
+
+# PART 12 – IMPORTANT SCOPE RESTRICTIONS
+
+This is an Investing / Wealth Management UI prototype.
+
+Do not modify or rebuild unrelated Lendrix verticals.
+
+Do not modify:
+
+- Lending.
+- Real Estate.
+- VC & Consulting.
+- Existing customer registration.
+- Existing authentication.
+- Existing shared KYC functionality.
+- Existing CRM functionality outside the Investing module.
+- Existing Admin functionality outside the Investing module.
+- Existing Sales functionality outside the Investing module.
+
+Do not create or execute database migrations.
+
+Do not alter PostgreSQL schemas.
+
+Do not connect to production APIs.
+
+Do not add real payment, trading or mutual fund execution functionality.
+
+Do not overwrite existing project configurations without a genuine requirement.
+
+If a shared component needs modification, keep it backward-compatible and document the reason.
+
+---
+
+# PART 13 – QUALITY AND VALIDATION
+
+Before completing the implementation:
+
+1. Verify all four role previews.
+2. Verify all sidebar routes.
+3. Verify every page opens.
+4. Verify all important forms.
+5. Verify all 12 risk questions.
+6. Verify capacity and willingness scoring independently.
+7. Verify the lower-of-two-levels calculation.
+8. Verify all O1–O7 overrides.
+9. Verify missing answers block final calculation.
+10. Verify CRM pipeline interactions.
+11. Verify Sales follow-up interactions.
+12. Verify Admin KYC and AML review interactions.
+13. Verify customer consent and confirmation UI.
+14. Verify responsive desktop and mobile layouts.
+15. Check for TypeScript and compilation errors.
+16. Check that all buttons and controls have meaningful actions.
+17. Check that role restrictions are reflected in the UI.
+
+Create test cases for the risk calculation and override rules.
+
+Do not claim successful testing for anything that was not actually tested.
+
+---
+
+# PART 14 – FINAL IMPLEMENTATION REPORT REQUIRED
+
+After finishing the implementation, provide a detailed report so that the development team can review and cross-verify the work.
+
+The final response MUST include the following sections.
+
+## A. Overall Implementation Summary
+
+Explain what was built and the scope completed.
+
+## B. Customer Dashboard
+
+List:
+
+- Pages created.
+- Sidebar items.
+- KYC fields implemented.
+- Financial questions implemented.
+- Investment goals implemented.
+- Risk questions implemented.
+- Risk scoring implemented.
+- Overrides implemented.
+- Consent and suitability screens.
+- Functional interactions.
+
+## C. Admin Dashboard
+
+List:
+
+- Pages created.
+- KYC review functionality.
+- AML functionality.
+- Investor management.
+- Risk-profile management.
+- Suitability review.
+- Consent management.
+- Reports.
+- Audit history.
+
+## D. CRM Dashboard
+
+List:
+
+- Pages created.
+- Investor pipeline stages.
+- Kanban functionality.
+- Investor 360 profile.
+- Campaign tracking.
+- Activities and tasks.
+- Follow-up functionality.
+- Conversion analytics.
+
+## E. Sales / DSA Dashboard
+
+List:
+
+- Pages created.
+- Investor lead management.
+- Onboarding tracker.
+- Follow-ups.
+- Activities.
+- Customer assistance.
+- Performance reporting.
+
+## F. Cross-Dashboard Workflow
+
+Explain which actions in one dashboard update or affect another dashboard in demo mode.
+
+## G. Files Created and Modified
+
+Provide exact paths and explain what each file does.
+
+Clearly distinguish:
+
+- New files.
+- Modified files.
+- Existing files reused.
+
+## H. Functional Verification
+
+Provide a checklist showing:
+
+- Implemented and tested.
+- Implemented but not fully tested.
+- Partially implemented.
+- Not implemented.
+
+## I. Risk Engine Verification
+
+Show test examples for:
+
+- Conservative result.
+- Moderately Conservative result.
+- Moderate result.
+- Moderately Aggressive result.
+- Aggressive result.
+- Capacity lower than willingness.
+- Willingness lower than capacity.
+- Multiple overrides.
+- Missing answer.
+- Short investment horizon.
+- No emergency fund.
+- High income obligations.
+
+## J. Mock Data and Integrations
+
+Clearly identify:
+
+- Mock/demo functionality.
+- Real functionality.
+- External integrations not connected.
+- Backend functionality not implemented.
+- Database functionality not implemented.
+
+## K. Unresolved Questions and Decisions
+
+List all requirements that need confirmation from the manager, client, compliance team or backend team.
+
+Do not silently make business or regulatory decisions.
+
+## L. Known Issues
+
+List all remaining UI, logic, responsiveness, build or testing issues.
+
+## M. Final Readiness Assessment
+
+Provide a realistic completion percentage separately for:
+
+- Customer UI.
+- Admin UI.
+- CRM UI.
+- Sales UI.
+- Risk engine.
+- Cross-dashboard workflow.
+- Overall UI prototype.
+
+Do not mark the entire project production-ready merely because the frontend UI is complete.
+
+---
+
+# FINAL INSTRUCTION
+
+Build the complete UI in detail, not a simplified demonstration.
+
+Follow the uploaded Investor KYC & Risk Profiling Framework as the source of truth.
+
+Prioritize accurate business workflows, detailed forms, role-specific interfaces, realistic investor journeys, clear status handling and a professional fintech experience.
+
+At the end, stop and provide the complete implementation report described above.
+
+Do not start backend or database implementation in this phase.

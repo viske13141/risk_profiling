@@ -1,0 +1,6 @@
+{
+  "name": "Lendrix Ventech – Investing & Wealth Management",
+  "description": "Multi-role investor onboarding, KYC, AML compliance review, risk profiling (B1–B9, D1–D12), and CRM platform for wealth management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
